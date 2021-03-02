@@ -1,4 +1,4 @@
-#from control import *
+# from control import *
 # External packages
 from control.matlab import *
 import argparse as arg
@@ -29,26 +29,29 @@ def get_args():
     parser.add_argument("-tc", "--time_constant", dest="time_constant",
                         help="Time constant of the Fist Order System ", type=float, default=1
                         )
-    parser.add_argument("-g", "--dc_gain", dest="dc_gain", type=int, default= 1,
+    parser.add_argument("-g", "--dc_gain", dest="dc_gain", type=int, default=1,
                         help="DC gain K "
                         )
     parser.add_argument("-fb", "--feedback", dest="feedback",
-                        help=" Feedback's Transfer function", required=False, default=None
+                        help=" Feedback's Transfer function", required=False, type=int, default=None
                         )
-    parser.add_argument("-d", "--damping_ratio", dest="damping_ratio", type=float, default= 1,
+    parser.add_argument("-d", "--damping_ratio", dest="damping_ratio", type=float, default=1,
                         help="Damping ratio of the system ζ"
                         )
-    parser.add_argument("-f", "--natural_frequency", dest="natural_frequency", type=float, default= 1,
+    parser.add_argument("-f", "--natural_frequency", dest="natural_frequency", type=float, default=1,
                         help="Natural Frequency of the system ω"
                         )
-    parser.add_argument("-den", "--denominator", dest="denominator_coeff", type=list, default=['1'],
+    parser.add_argument("-den", "--denominator", dest="denominator_coeff", type=str, default='1',
                         help="row vector of denominator coefficients"
                         )
-    parser.add_argument("-num", "--numerator", dest="numerator_coeff", type=list, default=['1'],
+    parser.add_argument("-num", "--numerator", dest="numerator_coeff", type=str, default='1',
                         help="row vector of numerator coefficients"
                         )
-    parser.add_argument("-td", "--time_delay", dest="time_delay", type=float, default= 0,
+    parser.add_argument("-td", "--time_delay", dest="time_delay", type=float, default=0,
                         help="Time delay in seconds"
+                        )
+    parser.add_argument("-id", "--internal_time_delay", dest="internal_time_delay", type=float, default=0,
+                        help="Internal delay in the system in seconds"
                         )
     return parser.parse_args()
 
@@ -64,32 +67,21 @@ if __name__ in "__main__":
     numerator_coeff = args.numerator_coeff
     feedback_tf = args.feedback
     time_delay = args.time_delay
+    internal_time_delay = args.internal_time_delay
 
     system_tf = GetControlTransferFunction(gain, time_constant, stop_time, natural_frequency,
-                                           damping_ratio, denominator_coeff, numerator_coeff, feedback_tf)
+                                           damping_ratio, denominator_coeff, numerator_coeff, feedback_tf,
+                                           internal_time_delay)
 
     if args.first_order:
         sys_tf = system_tf._get_first_order_transfer_function()
-
-        if system_tf.sys_neg_feedback is not None:
-                sys_tf = system_tf.sys_neg_feedback
-
-        evaluate_time_delay(sys_tf, stop_time, time_delay)
+        system_tf.evaluate_time_delays(sys_tf, time_delay)
 
     elif args.second_order:
         sys_tf = system_tf._get_second_order_transfer_function()
-
-        if system_tf.sys_neg_feedback is not None:
-            sys_tf = system_tf.sys_neg_feedback
-
-        evaluate_time_delay(sys_tf, stop_time, time_delay)
+        system_tf.evaluate_time_delays(sys_tf, time_delay)
 
     elif args.transfer_function:
-
-        # TODO Create a exception for non causal systems
-        sys_tf = system_tf._get_second_order_transfer_function()
-
-        if system_tf.sys_neg_feedback is not None:
-            sys_tf = system_tf.sys_neg_feedback
-
-        evaluate_time_delay(sys_tf, stop_time, time_delay)
+        # TODO Create an exception for non causal systems
+        sys_tf = system_tf._get_generic_transfer_function()
+        system_tf.evaluate_time_delays(sys_tf, time_delay)
