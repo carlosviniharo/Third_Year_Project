@@ -1,6 +1,3 @@
-# from control import *
-# External packages
-from control.matlab import *
 import argparse as arg
 # internal packages
 from control_generic_class import *
@@ -75,13 +72,13 @@ if __name__ in "__main__":
 
     if args.first_order:
         sys_tf = system_tf._get_first_order_transfer_function()
-        system_tf.evaluate_time_delays(sys_tf, time_delay)
+        system_tf.evaluate_time_delays(sys_tf)
 
     elif args.second_order:
         sys_tf = system_tf._get_second_order_transfer_function()
-        system_tf.evaluate_time_delays(sys_tf, time_delay)
+        system_tf.evaluate_time_delays(sys_tf)
 
     elif args.transfer_function:
         # TODO Create an exception for non causal systems
         sys_tf = system_tf._get_generic_transfer_function()
-        system_tf.evaluate_time_delays(sys_tf, time_delay)
+        system_tf.evaluate_time_delays(sys_tf)

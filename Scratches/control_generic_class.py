@@ -6,55 +6,83 @@ from robustcontrol.utils import InternalDelay
 from robustcontrol.utils import tf as tf_id
 import numpy as np
 import sys
-import os
 
 
 class GetControlTransferFunction:
     """
-        This Class contains the methods and instances for plotting
-        a Control System.
+        This Class analyzes and convert the information of the system into "s" domain transfer function. There can be
+        three cases First Order, Second Order and High Order. For each cases it can be done
+        manipulations such as Feedback or  Time Delay.
     """
 
-    def __init__(self, gain=None, time_constant=None, stop_time=None, natural_frequency=None,
-                 damping_ratio=None, denominator_coeff=None, numerator_coeff=None, feedback_tf=None, internal_delay_t=None):
+    def __init__(self, gain=1, time_constant=1, stop_time=10, natural_frequency=1,
+                 damping_ratio=1, denominator_coeff=1, numerator_coeff=1, feedback_tf=None,
+                 internal_delay_t=0, time_delay=0):
+        """
+        :param gain: int, The gain of a first oder system.
+        :param time_constant: float, Time required to reach 63% of the signal(seconds).
+        :param stop_time: float, Duration of the simulation.
+        :param natural_frequency: float, Frequency of the system where the vibrations are higher
+        :param damping_ratio: float, Ratio at which the system will decrease the vibrations.
+        :param denominator_coeff: list, Coefficients of the denominator in the transfer function.
+        :param numerator_coeff: list, Coefficients of the denominator in the transfer function.
+        :param feedback_tf: int, Feedback of a close loop system. Can be -1 or 1.
+        :param internal_delay_t:  float, quantity of time that the system experiments internally
+        :param time_delay: float, float, quantity of time that  the system experiments
+        """
+        # Todo replace default values with None when is sensible.
         self.dc_gain = gain
         self.time_cons = time_constant
         self.stp_time = stop_time
         self.feedback_tf = feedback_tf
-        self.natural_frequency = float(natural_frequency)
-        self.damping_ratio = float(damping_ratio)
-
-        # Todo Check the type of the variables that coming from the GUI
-        # self.denominator_coeff = [float(deno) for deno in denominator_coeff.split(',')]
-        # self.numerator_coeff = [float(num) for num in numerator_coeff.split(',')]
-
-        self.denominator_coeff = denominator_coeff
-        self.numerator_coeff = numerator_coeff
-        self.sys_neg_feedback = None
+        self.natural_frequency = natural_frequency
+        self.damping_ratio = damping_ratio
+        self.denominator_coeff = [denominator_coeff]
+        self.numerator_coeff = [numerator_coeff]
         self.internal_delay_t = internal_delay_t
+        self.time_delay = time_delay
 
     def _get_first_order_transfer_function(self):
+        """
+        Digest the information of a first order system and creates their transfer function
+        :return: control object
+        """
         sys_tf = TransferFunction(1 * self.dc_gain, [1 * self.time_cons, 1])
-        if all([self.feedback_tf is not None, self.internal_delay_t ==0]):
+        if all([self.feedback_tf is not None, self.internal_delay_t == 0]):
             sys_tf = self.get_negative_feedback(sys_tf)
         return sys_tf
 
     def _get_second_order_transfer_function(self):
+        """
+       Digest the information of a second order system and creates their transfer function
+       :return: control object
+       """
         sys_tf = TransferFunction(self.natural_frequency * self.natural_frequency,
                                   [1, 2 * self.natural_frequency * self.damping_ratio,
                                    self.natural_frequency * self.natural_frequency]
                                   )
-        if all([self.feedback_tf is not None, self.internal_delay_t ==0]):
+        if all([self.feedback_tf is not None, self.internal_delay_t == 0]):
             sys_tf = self.get_negative_feedback(sys_tf)
         return sys_tf
 
     def _get_generic_transfer_function(self):
+        """
+       Creates a transfer function for systems higher tha second order.
+       :return: control object
+       """
         sys_tf = TransferFunction(self.numerator_coeff, self.denominator_coeff)
-        if all([self.feedback_tf is not None, self.internal_delay_t ==0]):
+        if all([self.feedback_tf is not None, self.internal_delay_t == 0]):
             sys_tf = self.get_negative_feedback(sys_tf)
         return sys_tf
 
     def _get_internal_delay(self, num, den):
+        """
+        Creates a transfer function for systems that experiment an internal delay
+        in a close loop.
+        :param num: list, Coefficients of the numerator in the transfer function.
+        :param den: list, Coefficients of the denominator in the transfer function.
+        :return:
+        """
         sys_tf = tf_id(den, num)
         e = tf_id(1, 1, deadtime=self.internal_delay_t)
         one = InternalDelay(tf_id(1, 1))
@@ -66,6 +94,11 @@ class GetControlTransferFunction:
 
     # TODO include the option of a transfer function feedback
     def get_negative_feedback(self, sys_tf):
+        """
+        Calculates the transfer function of a close loop
+        :param sys_tf: control object, Transfer function to transform.
+        :return: control object, Result transfer function
+        """
         sys_feedback = None
         if self.feedback_tf == -1:
             sys_feedback = feedback(sys_tf, sign=-1)
@@ -74,19 +107,25 @@ class GetControlTransferFunction:
 
         return sys_feedback
 
-    def evaluate_time_delays(self, sys_tf, time_delay):
+    def evaluate_time_delays(self, sys_tf):
+        """
+        Insert the time delay in the resultant transfer function and call the plots
+        function of the script.
+        :param sys_tf:  Control object or robustcontrol object, transfer function to digest.
+        :return:  None
+        """
         if self.internal_delay_t < 0:
-            # Improve exit traceback
+            # TODO Improve exit traceback
             print('Internal delay should be positive integer number in causal systems')
             sys.exit(1)
         elif self.internal_delay_t == 0:
-            if time_delay < 0:
+            if self.time_delay < 0:
                 print('Time delay should be positive integer number in seconds')
                 sys.exit(1)
-            elif time_delay == 0:
+            elif self.time_delay == 0:
                 get_plots(sys_tf, self.stp_time)
             else:
-                get_plots(sys_tf, self.stp_time, time_delay)
+                get_plots(sys_tf, self.stp_time, self.time_delay)
         else:
             den = (sys_tf.den[0][0]).tolist()
             num = (sys_tf.num[0][0]).tolist()
@@ -96,13 +135,15 @@ class GetControlTransferFunction:
 
 
 def get_plots(sys_tf, stop_time, time_delay=0):
+    """
+    Creates step response , bode plot, Nyquist and root locus of the system.
+    :param sys_tf: control object, resultant transfer function.
+    :param stop_time: int, Total time for the plot
+    :param time_delay: float, quantity of time that  the system experiments
+    :return: None.
+    """
     plot_arguments = []
     time_limit = np.linspace(0, stop_time, 50000)
-    #if type(sys_tf) is not list:
-        #sys_tf = [sys_tf]
-
-    # Unpack the transfer function and packing the y_out and t_s points from step signal object
-    #for index_plot, in_tf_sys in enumerate(sys_tf):
     y_out, t_s = step(sys_tf, T=time_limit)
     t = [time + time_delay for time in t_s.T]
     y_out = y_out.T.tolist()
@@ -111,10 +152,7 @@ def get_plots(sys_tf, stop_time, time_delay=0):
     plot_arguments[1].insert(0, 0)
     plot_arguments[0].insert(0, 0)
 
-    # Notice that the first object in the list will be the main transfer function
-
-
-    # Root lcous plot for the system
+    # Root locus plot for the system
     rlocus(sys_tf)
 
     # Nyquist plot for the system
@@ -138,31 +176,20 @@ def get_plots(sys_tf, stop_time, time_delay=0):
     plt.plot(t, y_out)
     plt.show(block=False)
 
-    if 'PYCONTROL_TEST_EXAMPLES' not in os.environ:
-        plt.show()
+    plt.show()
 
 
 def get_plot_internal_delay(sys_tf, stop_time, internal_delay_t):
+    """
+    Create the step response plot for the transfer function with internal delay.
+    :param sys_tf: control object, resultant transfer function.
+    :param stop_time: int, Total time for the plot
+    :param internal_delay_t: float, quantity of time that  the system experiments internally.
+    :return: None
+    """
     time_limit = np.linspace(0, stop_time, 10000)
     y_delay = sys_tf.simulate(lambda t: [1], time_limit)
     plt.plot(time_limit, y_delay)
     plt.grid()
     plt.legend([f'Delay={internal_delay_t}'])
-    if 'PYCONTROL_TEST_EXAMPLES' not in os.environ:
-        plt.show()
-
-
-def get_time_delay_pade(time_delay, sys):
-    """
-    This function  gives an approximation of a time delay in a transfer function
-    using pade approximant
-    :param time_delay: int time of the delay
-    :param sys: obj control class (array) transfer function to apply the delay
-    :return:
-    """
-    delay = pade(time_delay, 15)
-    delay_tf = tf(delay[0], delay[1])
-    final = sys * delay_tf
-    return final
-
-
+    plt.show()
