@@ -1,3 +1,4 @@
+from collections import defaultdict
 from control import *
 from matplotlib import pyplot as plt
 from control.matlab import *
@@ -15,7 +16,7 @@ class GetControlTransferFunction:
         manipulations such as Feedback or  Time Delay.
     """
 
-    def __init__(self, gain=1, time_constant=1, stop_time=10, natural_frequency=1,
+    def __init__(self, dictionary_transfer_function, gain=1, time_constant=1, stop_time=10, natural_frequency=1,
                  damping_ratio=1, denominator_coeff=1, numerator_coeff=1, feedback_tf=None,
                  internal_delay_t=0, time_delay=0):
         """
@@ -41,6 +42,11 @@ class GetControlTransferFunction:
         self.numerator_coeff = [numerator_coeff]
         self.internal_delay_t = internal_delay_t
         self.time_delay = time_delay
+        self.enable_time_delay = False
+        self.dictionary_arguments_gui = dictionary_transfer_function
+        self.sys_tem_tf = []
+        self.dictionary_single_system = defaultdict(list)
+
 
     def _get_first_order_transfer_function(self):
         """
@@ -65,17 +71,29 @@ class GetControlTransferFunction:
             sys_tf = self.get_negative_feedback(sys_tf)
         return sys_tf
 
-    def _get_generic_transfer_function(self):
+    def _get_generic_transfer_function(self, general_trans_function):
         """
        Creates a transfer function for systems higher tha second order.
        :return: control object
        """
-        sys_tf = TransferFunction(self.numerator_coeff, self.denominator_coeff)
+        sys_tf =general_trans_function
         if all([self.feedback_tf is not None, self.internal_delay_t == 0]):
             sys_tf = self.get_negative_feedback(sys_tf)
         return sys_tf
 
-    def _get_internal_delay(self, num, den):
+    def add_transfer_fuction(self, parameters, inter_delay, transfer_function= None,):
+
+        sys_tf = TransferFunction(parameters[0], parameters[1])
+
+        if transfer_function is not None:
+            try:
+                sys_tf = transfer_function.cascade(transfer_function)
+            except:
+                sys_tf = transfer_function*sys_tf
+        return sys_tf
+
+
+    def _get_internal_delay(self, sys_tf):
         """
         Creates a transfer function for systems that experiment an internal delay
         in a close loop.
@@ -83,7 +101,10 @@ class GetControlTransferFunction:
         :param den: list, Coefficients of the denominator in the transfer function.
         :return:
         """
-        sys_tf = tf_id(den, num)
+        den = (sys_tf.den[0][0]).tolist()
+        num = (sys_tf.num[0][0]).tolist()
+
+        sys_tf = tf_id(num, den)
         e = tf_id(1, 1, deadtime=self.internal_delay_t)
         one = InternalDelay(tf_id(1, 1))
         sys_tf = InternalDelay(sys_tf)
@@ -114,23 +135,19 @@ class GetControlTransferFunction:
         :param sys_tf:  Control object or robustcontrol object, transfer function to digest.
         :return:  None
         """
-        if self.internal_delay_t < 0:
+        if self.internal_delay_t < 0 or self.time_delay < 0:
             # TODO Improve exit traceback
             print('Internal delay should be positive integer number in causal systems')
             sys.exit(1)
-        elif self.internal_delay_t == 0:
-            if self.time_delay < 0:
-                print('Time delay should be positive integer number in seconds')
-                sys.exit(1)
-            elif self.time_delay == 0:
-                get_plots(sys_tf, self.stp_time)
-            else:
+        if self.enable_time_delay:
+            get_plot_internal_delay(sys_tf, self.stp_time, self.internal_delay_t,self.time_delay)
+        elif self.time_delay != 0:
                 get_plots(sys_tf, self.stp_time, self.time_delay)
+
         else:
-            den = (sys_tf.den[0][0]).tolist()
-            num = (sys_tf.num[0][0]).tolist()
-            sys_tf = self._get_internal_delay(den, num)
-            get_plot_internal_delay(sys_tf, self.stp_time, self.internal_delay_t)
+            get_plots(sys_tf, self.stp_time)
+
+
 # End class GetControlTransferFunction:
 
 
@@ -179,7 +196,7 @@ def get_plots(sys_tf, stop_time, time_delay=0):
     plt.show()
 
 
-def get_plot_internal_delay(sys_tf, stop_time, internal_delay_t):
+def get_plot_internal_delay(sys_tf, stop_time, internal_delay_t, time_delay):
     """
     Create the step response plot for the transfer function with internal delay.
     :param sys_tf: control object, resultant transfer function.
@@ -193,3 +210,4 @@ def get_plot_internal_delay(sys_tf, stop_time, internal_delay_t):
     plt.grid()
     plt.legend([f'Delay={internal_delay_t}'])
     plt.show()
+
