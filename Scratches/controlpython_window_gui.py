@@ -1,11 +1,8 @@
 #!/usr/bin/python39
 import PySimpleGUI as sg
-from control_generic_class import *
 from collections import OrderedDict
 
 
-CANVAS_WORKING_SPACE_X = 800,
-CANVAS_WORKING_SPACE_Y = 800,
 # Layout for all the windows in the ControlPython's GUI
 # Define the window's content
 layout_main = [[sg.Text("ControlPython",

@@ -1,6 +1,5 @@
-#!/usr/bin/python3.9
-from collections import defaultdict
-import PySimpleGUI as sg
+#!/usr/bin/python3.8
+
 from controlpython_window_gui import *
 from PIL import Image
 from control_generic_class import *
@@ -10,6 +9,7 @@ from pprint import pprint
 img_icon = Image.open(r'icons/snake.png')
 img_icon = img_icon.resize((50,50))
 img_icon.save('icons/icon_snake_main.png')
+
 
 def get_GUI():
         all_windows = CreateWindow()
@@ -22,14 +22,13 @@ def get_GUI():
         graph = window_l["-GRAPH-"]  # type: sg.Graph
         graph.draw_image(filename='icons/icon_snake_main.png', location=(0,90))
 
-        operation_dic = {}
         dragging = False
         start_point = end_point = None
         prior_rect = 0
         drawing_setting = window_r.read(timeout=1)[1]
 
         window_r.move(window_l.current_location()[0] + window_l.size[0], window_l.current_location()[1])
-        # graph.bind('<Button-3>', '+RIGHT+')
+
 
         while True:
             window, event, values = sg.read_all_windows()
@@ -53,7 +52,7 @@ def get_GUI():
                     graph.delete_figure(prior_rect)
                 delta_x, delta_y = x - lastxy[0], y - lastxy[1]
                 lastxy = x, y
-                name_of_entry = None
+
                 #print(drawing_setting)
                 if None not in (start_point, end_point):
 
@@ -116,11 +115,16 @@ def get_GUI():
                 system_tf = None
                 enable_internal_time_delay = False
                 enable_feedback = False
+                sum_time_delays = []
 
                 for operation in final_order_op.values():
 
                     if operation[0] == 'Transfer Function':
+                        if enable_internal_time_delay:
+                            system_tf = control_operations.get_time_delay_pade(system_tf)
+                            enable_internal_time_delay = False
                         system_tf = control_operations.add_transfer_fuction(operation[1], enable_internal_time_delay, system_tf)
+
 
                     if operation[0] == 'Feedback':
                         control_operations.feedback_tf = int(operation[1])
@@ -129,26 +133,26 @@ def get_GUI():
                             control_operations.enable_time_delay = enable_internal_time_delay
                             enable_internal_time_delay = False
 
-
                         else:
                             system_tf = control_operations.get_negative_feedback(system_tf)
                             enable_feedback = True
 
 
                     if operation[0] == 'Time Delay':
-                        sum_time_delays =+ int(operation[1])
-                        control_operations.time_delay = sum_time_delays
                         control_operations.internal_delay_t = int(operation[1])
+                        if enable_internal_time_delay:
+                            system_tf = control_operations.get_time_delay_pade(system_tf)
+
                         enable_internal_time_delay = True
 
                     if operation[0] == 'Plot':
+                        if enable_internal_time_delay:
+                            system_tf = control_operations.get_time_delay_pade(system_tf)
                         print(final_order_op)
                         pprint(system_tf)
                         control_operations.stp_time = int(operation[1])
                         control_operations.evaluate_time_delays(system_tf)
 
-
         window.close()
 if __name__ == '__main__':
     get_GUI()
-#print(all_windows.dictionary_arguments_operations)
