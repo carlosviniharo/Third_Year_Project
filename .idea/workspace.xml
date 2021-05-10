@@ -1,9 +1,45 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="2d019ad6-6f75-4666-a4bf-3ed75825e117" name="Default Changelist" comment="control_generic_class.py&#10;- Excluded unused class arguments.&#10;- Include a &quot;add_transfer_fuction&quot; method to sum transfer functions in the GUI.&#10;- Refactored evaluate_time_delays.&#10;&#10;controlpython_gui.py&#10;- Refactored&#10;&#10;controlpython_window_gui.py&#10;- Include a new method to create a new object for each menu in the GUI.">
+    <list default="true" id="2d019ad6-6f75-4666-a4bf-3ed75825e117" name="Default Changelist" comment="Release version of ControlPython includes:&#10;- Test Unit&#10;- Requirements">
+      <change afterPath="$PROJECT_DIR$/ControlPython/controlpython_gui.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ControlPython/controlpython_tests.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ControlPython/controlpython_window_gui.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ControlPython/icons/feedback_menu.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ControlPython/icons/icon_delay.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ControlPython/icons/icon_feedback.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ControlPython/icons/icon_plot.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ControlPython/icons/icon_transf.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ControlPython/icons/plot_menu.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ControlPython/icons/time_delay_menu.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ControlPython/icons/transfer_menu.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ControlPython/logger_settings.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Scratches/control_generic_class.py" beforeDir="false" afterPath="$PROJECT_DIR$/Scratches/control_generic_class.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Scratches/control_generic_class.py" beforeDir="false" afterPath="$PROJECT_DIR$/ControlPython/control_generic_class.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Scratches/controlpython_gui.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Scratches/controlpython_set_up.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Scratches/controlpython_window_gui.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Scratches/icons/Delay.png" beforeDir="false" afterPath="$PROJECT_DIR$/ControlPython/icons/Delay.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Scratches/icons/Delay_icon.png" beforeDir="false" afterPath="$PROJECT_DIR$/ControlPython/icons/Delay_icon.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Scratches/icons/Feedback.png" beforeDir="false" afterPath="$PROJECT_DIR$/ControlPython/icons/Feedback.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Scratches/icons/Feedback_icon.png" beforeDir="false" afterPath="$PROJECT_DIR$/ControlPython/icons/Feedback_icon.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Scratches/icons/High_order.png" beforeDir="false" afterPath="$PROJECT_DIR$/ControlPython/icons/High_order.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Scratches/icons/High_order_icon.png" beforeDir="false" afterPath="$PROJECT_DIR$/ControlPython/icons/High_order_icon.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Scratches/icons/Plot.png" beforeDir="false" afterPath="$PROJECT_DIR$/ControlPython/icons/Plot.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Scratches/icons/Plot_icon.png" beforeDir="false" afterPath="$PROJECT_DIR$/ControlPython/icons/Plot_icon.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Scratches/icons/first_order.png" beforeDir="false" afterPath="$PROJECT_DIR$/ControlPython/icons/first_order.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Scratches/icons/icon_snake_main.png" beforeDir="false" afterPath="$PROJECT_DIR$/ControlPython/icons/icon_snake_main.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Scratches/icons/second_order.png" beforeDir="false" afterPath="$PROJECT_DIR$/ControlPython/icons/second_order.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Scratches/icons/snake.png" beforeDir="false" afterPath="$PROJECT_DIR$/ControlPython/icons/snake.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Scratches/robustcontrol/Chapter_05.py" beforeDir="false" afterPath="$PROJECT_DIR$/ControlPython/robustcontrol/Chapter_05.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Scratches/robustcontrol/InternalDelay.py" beforeDir="false" afterPath="$PROJECT_DIR$/ControlPython/robustcontrol/InternalDelay.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Scratches/robustcontrol/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/ControlPython/robustcontrol/__init__.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Scratches/robustcontrol/doc_func.py" beforeDir="false" afterPath="$PROJECT_DIR$/ControlPython/robustcontrol/doc_func.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Scratches/robustcontrol/reporting.py" beforeDir="false" afterPath="$PROJECT_DIR$/ControlPython/robustcontrol/reporting.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Scratches/robustcontrol/robusttools.py" beforeDir="false" afterPath="$PROJECT_DIR$/ControlPython/robustcontrol/robusttools.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Scratches/robustcontrol/utils.py" beforeDir="false" afterPath="$PROJECT_DIR$/ControlPython/robustcontrol/utils.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Scratches/robustcontrol/utils_function_list.txt" beforeDir="false" afterPath="$PROJECT_DIR$/ControlPython/robustcontrol/utils_function_list.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Scratches/robustcontrol/utilsplot.py" beforeDir="false" afterPath="$PROJECT_DIR$/ControlPython/robustcontrol/utilsplot.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -13,11 +49,17 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
+        <option value="Python Unit Test" />
         <option value="Python Script" />
       </list>
     </option>
   </component>
   <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="Demo_one" />
+      </map>
+    </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="GitSEFilterConfiguration">
@@ -29,15 +71,12 @@
     </file-type-list>
   </component>
   <component name="HighlightingSettingsPerFile">
-    <setting file="file://$PROJECT_DIR$/Scratches/controlpython_set_up.py" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Scratches/controlpython_gui.py" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$APPLICATION_CONFIG_DIR$/scratches/Tanasea.py" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$USER_HOME$/PycharmProjects/Project_thirdyear/venv/lib/python3.8/site-packages/control/xferfcn.py" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Scratches/robustcontrol/utils.py" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$APPLICATION_CONFIG_DIR$/scratches/tortoise_try.py" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$USER_HOME$/PycharmProjects/Project_thirdyear/venv/lib/python3.8/site-packages/matplotlib/scale.py" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Scratches/control_generic_class.py" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/ControlPython/controlpython_set_up.py" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/ControlPython/controlpython_gui.py" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/ControlPython/robustcontrol/utils.py" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/ControlPython/control_generic_class.py" root0="FORCE_HIGHLIGHTING" />
   </component>
+  <component name="JupyterTrust" id="1ec9059c-b05e-4105-a6f8-a41b55576b80" />
   <component name="ProjectId" id="1kD59dMYTdU9FhimtVAR6v642BU" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
@@ -46,10 +85,11 @@
   </component>
   <component name="PropertiesComponent">
     <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="TODO_SCOPE" value="All Places" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="full.screen.before.presentation.mode" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/Scratches/icons" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/ControlPython" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
@@ -68,8 +108,33 @@
       <recent name="$PROJECT_DIR$/Scratches/icons" />
       <recent name="$PROJECT_DIR$/Scratches" />
     </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/Scratches" />
+    </key>
   </component>
-  <component name="RunManager" selected="Python.controlpython_gui">
+  <component name="RunManager" selected="Python.controlpython_gui (1)">
+    <configuration name="controlpython_gui (1)" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="Third_Year_Project" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/ControlPython" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/ControlPython/controlpython_gui.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
     <configuration name="controlpython_gui" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="Third_Year_Project" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -81,12 +146,12 @@
       <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/Scratches" />
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="false" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
       <option name="SCRIPT_NAME" value="$PROJECT_DIR$/Scratches/controlpython_gui.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="EMULATE_TERMINAL" value="true" />
       <option name="MODULE_MODE" value="false" />
       <option name="REDIRECT_INPUT" value="false" />
       <option name="INPUT_FILE" value="" />
@@ -114,28 +179,6 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="delays (1)" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
-      <module name="Third_Year_Project" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$USER_HOME$/PycharmProjects/Project_thirdyear/Scratches" />
-      <option name="IS_MODULE_SDK" value="false" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$USER_HOME$/PycharmProjects/Project_thirdyear/Scratches/delays.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
-      <option name="REDIRECT_INPUT" value="false" />
-      <option name="INPUT_FILE" value="" />
-      <method v="2" />
-    </configuration>
     <configuration name="delays" type="PythonConfigurationType" factoryName="Python">
       <module name="Third_Year_Project" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -150,28 +193,6 @@
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
       <option name="SCRIPT_NAME" value="$PROJECT_DIR$/Scratches/delays.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
-      <option name="REDIRECT_INPUT" value="false" />
-      <option name="INPUT_FILE" value="" />
-      <method v="2" />
-    </configuration>
-    <configuration name="ex" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
-      <module name="Third_Year_Project" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$APPLICATION_CONFIG_DIR$/scratches" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$APPLICATION_CONFIG_DIR$/scratches/ex.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -554,36 +575,51 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
+    <configuration name="Unittests in controlpython_tests.py" type="tests" factoryName="Unittests" temporary="true" nameIsGenerated="true">
+      <module name="Third_Year_Project" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/ControlPython" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="_new_additionalArguments" value="&quot;&quot;" />
+      <option name="_new_target" value="&quot;$PROJECT_DIR$/ControlPython/controlpython_tests.py&quot;" />
+      <option name="_new_targetType" value="&quot;PATH&quot;" />
+      <method v="2" />
+    </configuration>
     <list>
-      <item itemvalue="Python.first_script second order" />
+      <item itemvalue="Python.delays" />
+      <item itemvalue="Python.first_script  first order with time delay cl" />
+      <item itemvalue="Python.first_script  with time delay ol" />
+      <item itemvalue="Python.first_script first order feeedback" />
+      <item itemvalue="Python.first_script first order internal delay cl" />
+      <item itemvalue="Python.first_script first order internal delay ol" />
+      <item itemvalue="Python.first_script first order open loop" />
       <item itemvalue="Python.first_script second order with negative feedback" />
       <item itemvalue="Python.first_script second order with time delay " />
-      <item itemvalue="Python.first_script transfer function" />
-      <item itemvalue="Python.first_script transfer function with negative feedback" />
+      <item itemvalue="Python.first_script second order" />
       <item itemvalue="Python.first_script transfer function with delay" />
-      <item itemvalue="Python.first_script transfer function with internal time delay" />
       <item itemvalue="Python.first_script transfer function with internal time delay close loop" />
-      <item itemvalue="Python.first_script first order feeedback" />
-      <item itemvalue="Python.first_script first order open loop" />
-      <item itemvalue="Python.first_script first order internal delay ol" />
-      <item itemvalue="Python.first_script first order internal delay cl" />
-      <item itemvalue="Python.first_script  with time delay ol" />
-      <item itemvalue="Python.first_script  first order with time delay cl" />
+      <item itemvalue="Python.first_script transfer function with internal time delay" />
+      <item itemvalue="Python.first_script transfer function with negative feedback" />
+      <item itemvalue="Python.first_script transfer function" />
       <item itemvalue="Python.first_script" />
-      <item itemvalue="Python.delays" />
       <item itemvalue="Python.generic" />
-      <item itemvalue="Python.tortoise_try" />
       <item itemvalue="Python.controlpython_gui" />
       <item itemvalue="Python.controlpython_window_gui" />
-      <item itemvalue="Python.delays (1)" />
-      <item itemvalue="Python.ex" />
+      <item itemvalue="Python.tortoise_try" />
+      <item itemvalue="Python.controlpython_gui (1)" />
+      <item itemvalue="Python tests.Unittests in controlpython_tests.py" />
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Python.controlpython_gui" />
-        <item itemvalue="Python.ex" />
-        <item itemvalue="Python.delays (1)" />
+        <item itemvalue="Python.controlpython_gui (1)" />
         <item itemvalue="Python.controlpython_window_gui" />
+        <item itemvalue="Python.controlpython_gui" />
+        <item itemvalue="Python tests.Unittests in controlpython_tests.py" />
         <item itemvalue="Python.tortoise_try" />
       </list>
     </recent_temporary>
@@ -613,6 +649,22 @@
       <workItem from="1616515048312" duration="6081000" />
       <workItem from="1616525242090" duration="64529000" />
       <workItem from="1617908864155" duration="10250000" />
+      <workItem from="1618798693922" duration="47000" />
+      <workItem from="1618798774865" duration="30767000" />
+      <workItem from="1618891339705" duration="367000" />
+      <workItem from="1618891826141" duration="141951000" />
+      <workItem from="1619291464155" duration="106000" />
+      <workItem from="1619306638264" duration="10712000" />
+      <workItem from="1619348135076" duration="1508000" />
+      <workItem from="1619381355353" duration="802000" />
+      <workItem from="1619432276863" duration="593000" />
+      <workItem from="1619463447398" duration="52000" />
+      <workItem from="1619463549369" duration="23000" />
+      <workItem from="1619625897879" duration="663000" />
+      <workItem from="1619627558519" duration="2089000" />
+      <workItem from="1620325823074" duration="777000" />
+      <workItem from="1620335929081" duration="7217000" />
+      <workItem from="1620675928180" duration="298000" />
     </task>
     <task id="LOCAL-00001" summary="Include damping ration and natural frequency to control generic class as parameter. &#10;Instead of use a List Comprehension to generate the time for the x axies it is used numpy linspace.">
       <created>1612901457266</created>
@@ -665,7 +717,8 @@
     <MESSAGE value="Include &quot;icons&quot; directory.&#10;&#10;Implemented Internal delays in control_generic_class.py and refactored &quot;evaluated_time_delay&quot;. Notice that now the class recognizes if there is a time delay or a internal delay.&#10;&#10;Function get_plots not longer support a list of transfer functions as this feature will be implemented directly through the GUI.&#10;&#10;Script &quot;delays&quot; was deleted from the repository as it was only a scratch. then it was remplaced by &quot;ControlPython_GUI.py&quot;. &#10;The feedback argument is not longer evaluated in the main ( ControlPython_set_up.py ) as this process was already evaluated in control_generic_class.py." />
     <MESSAGE value="control_generic_class.py&#10;- Include comments in the class and functions.&#10;- Set default values to the arguments.&#10;- Deleted the assignation of type to the attributes.&#10;- Deleted get_time_delay_pade as this function is not longer necessary.&#10;&#10;ControlPython_GUI.py&#10;First script for the GUI, contains:&#10;- layouts for the main and second window.&#10;- get_window function creates second windows continuously.&#10;- include three cases for each control system type in the scope.&#10;&#10;snake.png&#10;Inlude icon for the aplication." />
     <MESSAGE value="control_generic_class.py&#10;- Excluded unused class arguments.&#10;- Include a &quot;add_transfer_fuction&quot; method to sum transfer functions in the GUI.&#10;- Refactored evaluate_time_delays.&#10;&#10;controlpython_gui.py&#10;- Refactored&#10;&#10;controlpython_window_gui.py&#10;- Include a new method to create a new object for each menu in the GUI." />
-    <option name="LAST_COMMIT_MESSAGE" value="control_generic_class.py&#10;- Excluded unused class arguments.&#10;- Include a &quot;add_transfer_fuction&quot; method to sum transfer functions in the GUI.&#10;- Refactored evaluate_time_delays.&#10;&#10;controlpython_gui.py&#10;- Refactored&#10;&#10;controlpython_window_gui.py&#10;- Include a new method to create a new object for each menu in the GUI." />
+    <MESSAGE value="Release version of ControlPython includes:&#10;- Test Unit&#10;- Requirements" />
+    <option name="LAST_COMMIT_MESSAGE" value="Release version of ControlPython includes:&#10;- Test Unit&#10;- Requirements" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -695,64 +748,28 @@
           <line>587</line>
           <option name="timeStamp" value="44" />
         </line-breakpoint>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/Scratches/controlpython_set_up.py</url>
-          <line>73</line>
-          <option name="timeStamp" value="55" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$APPLICATION_CONFIG_DIR$/scratches/tortoise_try.py</url>
-          <line>81</line>
-          <option name="timeStamp" value="78" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$USER_HOME$/PycharmProjects/Project_thirdyear/venv/lib/python3.8/site-packages/PySimpleGUI/PySimpleGUI.py</url>
-          <line>4964</line>
-          <option name="timeStamp" value="116" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/Scratches/controlpython_gui.py</url>
-          <line>125</line>
-          <option name="timeStamp" value="135" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/Scratches/control_generic_class.py</url>
-          <line>82</line>
-          <option name="timeStamp" value="136" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/Scratches/control_generic_class.py</url>
-          <line>63</line>
-          <option name="timeStamp" value="140" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/Scratches/controlpython_gui.py</url>
-          <line>157</line>
-          <option name="timeStamp" value="141" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/Scratches/controlpython_gui.py</url>
-          <line>152</line>
-          <option name="timeStamp" value="143" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/Scratches/control_generic_class.py</url>
-          <line>120</line>
-          <option name="timeStamp" value="144" />
-        </line-breakpoint>
       </breakpoints>
+      <default-breakpoints>
+        <breakpoint type="python-exception">
+          <properties notifyOnTerminate="true" exception="BaseException">
+            <option name="notifyOnTerminate" value="true" />
+          </properties>
+        </breakpoint>
+      </default-breakpoints>
     </breakpoint-manager>
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/Third_Year_Project$ex.coverage" NAME="ex Coverage Results" MODIFIED="1618333754973" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$APPLICATION_CONFIG_DIR$/scratches" />
+    <SUITE FILE_PATH="coverage/Third_Year_Project$Unittests_in_controlpython_tests_py.coverage" NAME="Unittests in controlpython_tests.py Coverage Results" MODIFIED="1619310806588" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Scratches" />
     <SUITE FILE_PATH="coverage/Third_Year_Project$first_script_second_order_with_time_delay_.coverage" NAME="first_script second order with time delay  Coverage Results" MODIFIED="1614351590997" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Scratches" />
-    <SUITE FILE_PATH="coverage/Third_Year_Project$controlpython_window_gui.coverage" NAME="controlpython_window_gui Coverage Results" MODIFIED="1615532151188" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Scratches" />
+    <SUITE FILE_PATH="coverage/Third_Year_Project$controlpython_window_gui.coverage" NAME="controlpython_window_gui Coverage Results" MODIFIED="1619269047283" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Scratches" />
     <SUITE FILE_PATH="coverage/Third_Year_Project$generic.coverage" NAME="generic Coverage Results" MODIFIED="1618332707133" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$APPLICATION_CONFIG_DIR$/scratches" />
-    <SUITE FILE_PATH="coverage/Third_Year_Project$tortoise_try.coverage" NAME="tortoise_try Coverage Results" MODIFIED="1615522289810" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$APPLICATION_CONFIG_DIR$/scratches" />
+    <SUITE FILE_PATH="coverage/Third_Year_Project$tortoise_try.coverage" NAME="tortoise_try Coverage Results" MODIFIED="1619278298008" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$APPLICATION_CONFIG_DIR$/scratches" />
     <SUITE FILE_PATH="coverage/Third_Year_Project$delays__1_.coverage" NAME="delays (1) Coverage Results" MODIFIED="1616722418871" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$USER_HOME$/PycharmProjects/Project_thirdyear/Scratches" />
     <SUITE FILE_PATH="coverage/Third_Year_Project$Tanasea.coverage" NAME="Tanasea Coverage Results" MODIFIED="1614352885687" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$APPLICATION_CONFIG_DIR$/scratches" />
     <SUITE FILE_PATH="coverage/Third_Year_Project$first_script_second_order.coverage" NAME="first_script second order Coverage Results" MODIFIED="1618793278677" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Scratches" />
+    <SUITE FILE_PATH="coverage/Third_Year_Project$controlpython_gui__1_.coverage" NAME="controlpython_gui (1) Coverage Results" MODIFIED="1620327767764" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/ControlPython" />
     <SUITE FILE_PATH="coverage/Third_Year_Project$ControlPython_GUI.coverage" NAME="ControlPython_GUI Coverage Results" MODIFIED="1615510153882" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Scratches" />
-    <SUITE FILE_PATH="coverage/Third_Year_Project$controlpython_gui.coverage" NAME="controlpython_gui Coverage Results" MODIFIED="1618796446225" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Scratches" />
+    <SUITE FILE_PATH="coverage/Third_Year_Project$controlpython_gui.coverage" NAME="controlpython_gui Coverage Results" MODIFIED="1619380171633" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Scratches" />
   </component>
 </project>
